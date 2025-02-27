@@ -1,7 +1,16 @@
 import React from "react";
 
-const Interests = ({ data }) => {
+const Interests = ({ data, setData }) => {
   const { interests } = data;
+  const handleDataChange = (e, name) => {
+    setData((prevState) => ({
+      ...prevState,
+      interests: e.target.checked
+        ? [...prevState.interests, e.target.name]
+        : prevState.interests.filter((i) => i !== e.target.name),
+    }));
+  };
+  console.log(interests);
   return (
     <div>
       <div>
@@ -10,6 +19,7 @@ const Interests = ({ data }) => {
             type="checkbox"
             name="coding"
             checked={interests.includes("coding")}
+            onChange={handleDataChange}
           />
           Coding
         </label>
@@ -18,8 +28,9 @@ const Interests = ({ data }) => {
         <label>
           <input
             type="checkbox"
-            name="musci"
+            name="music"
             checked={interests.includes("music")}
+            onChange={handleDataChange}
           />
           Music
         </label>
@@ -28,8 +39,9 @@ const Interests = ({ data }) => {
         <label>
           <input
             type="checkbox"
-            name="javscript"
+            name="javascript"
             checked={interests.includes("javascript")}
+            onChange={handleDataChange}
           />
           Javascript
         </label>

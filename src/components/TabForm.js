@@ -42,7 +42,7 @@ const TabForm = () => {
         ))}
       </div>
       <div className="tab-body">
-        <ActiveTabComponent data={data} />
+        <ActiveTabComponent data={data} setData={setData} />
       </div>
     </div>
   );
