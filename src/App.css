@@ -18,3 +18,13 @@
   border: 1px solid black;
   height: 200px;
 }
+
+.error{
+  font-size: x-small;
+  color: red;
+  display: block;
+}
+
+.toggle-btn{
+  text-align: center;
+}
