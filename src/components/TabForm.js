@@ -28,6 +28,18 @@ const TabForm = () => {
   ];
 
   const ActiveTabComponent = tabs[activeTab].component;
+
+  const handlePrevClick = () => {
+    setActiveTab((prev) => prev - 1);
+  };
+
+  const handleNextClick = () => {
+    setActiveTab((prev) => prev + 1);
+  };
+
+  const handleSubmitClick = () => {
+    // Make Api call
+  };
   return (
     <div>
       <div className="heading-container">
@@ -43,6 +55,15 @@ const TabForm = () => {
       </div>
       <div className="tab-body">
         <ActiveTabComponent data={data} setData={setData} />
+      </div>
+      <div>
+        {activeTab > 0 && <button onClick={handlePrevClick}>Prev</button>}
+        {activeTab < tabs.length - 1 && (
+          <button onClick={handleNextClick}>Next</button>
+        )}
+        {activeTab === tabs.length - 1 && (
+          <button onClick={handleSubmitClick}>Submit</button>
+        )}
       </div>
     </div>
   );
